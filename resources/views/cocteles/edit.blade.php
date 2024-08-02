@@ -15,13 +15,13 @@
         }
 
         .content-wrapper {
-            backdrop-filter: blur(0px); /* Remueve el desenfoque en el contenido */
-            background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco semitransparente */
+            backdrop-filter: blur(0px); 
+            background-color: rgba(255, 255, 255, 0.9); 
             border-radius: 10px;
             padding: 20px;
             margin: 20px auto;
-            max-width: 90%; /* Ajusta el ancho máximo del contenido */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Añade sombra al contenido */
+            max-width: 90%; 
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
         }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

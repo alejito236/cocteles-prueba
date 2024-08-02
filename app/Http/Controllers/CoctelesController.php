@@ -11,24 +11,18 @@ class CoctelesController extends Controller
     
     public function index()
     {
-        $datos['cocteles'] =Cocteles::paginate(5);
+        $datos['cocteles'] =Cocteles::paginate(10);
         return view('cocteles.index',$datos);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         return view('cocteles.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+    
     public function store(Request $request)
     {
-        // Define las reglas de validación
         $rules = [
             'nombre' => 'required|string|max:255',
             'categoria' => 'required|string|max:100',
@@ -39,31 +33,25 @@ class CoctelesController extends Controller
             'medida1' => 'required|string|max:50',
             'medida2' => 'required|string|max:50',
         ];
-    
-        // Valida los datos del request
+
         $validator = Validator::make($request->all(), $rules);
     
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();
         }
-    
-        // Crear nuevo cóctel
+
         Cocteles::create($request->all());
     
         return redirect('cocteles')->with('mensaje', 'Cóctel guardado con éxito');
     }
 
-    /**
-     * Display the specified resource.
-     */
+   
     public function show(Cocteles $cocteles)
     {
-        //
+    
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+  
     public function edit($idCoctel)
     {
         $coctel= Cocteles::findOrFail($idCoctel);
